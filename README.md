@@ -9,5 +9,6 @@ An android application which tells which team is playing which team and the winn
 - Retrofit 2.5.0 
 - Gson 2.8.5 
 
-# Launch Min SDK Version 
-21 Android SDK
+# Launch 
+- Min SDK Version: 21 Android SDK
+- Add the JSON file in bracket.json in the assets folder
