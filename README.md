@@ -5,7 +5,8 @@ An android application which tells which team is playing which team and the winn
 # Technologies
 
 - Android SDK 3.4.1
-- Kotlin 1.3.31 
+- Kotlin 1.3.31
+- Canvas Drawing Class
 - Retrofit 2.5.0 
 - Gson 2.8.5 
 
