@@ -9,13 +9,8 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.DisplayMetrics
-import android.util.Log
-import android.view.View
-import android.view.ViewTreeObserver
 import android.view.Window
 import android.view.WindowManager
-import android.widget.LinearLayout
-import android.widget.ScrollView
 import com.bracket.Adapters.RowsAdapter
 import com.bracket.Contracts.BracketInterface
 import com.bracket.Models.Annotations
@@ -106,19 +101,13 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
 
             for (t in connection.toElementIDs.indices){
 
-                val myView = MyView(this,connection.fromElementID,connection.toElementIDs[t],
+                val connectionsView = ConnectionsView(this,connection.fromElementID,connection.toElementIDs[t],
                     rows,annotationcount,cardWidth,(cardWidth/6)*t)
 
-                layout.addView(myView,width,height)
+                layout.addView(connectionsView,width,height)
             }
         }
 
-//        val myView = MyView(this,"211","221",
-//            rows,annotationcount,cardWidth,(cardWidth/6)*0)
-//
-//        val totalHeight = view.getChildAt(0).getHeight()
-//
-//        layout.addView(myView,width,height)
     }
 
     private fun adapterSetup(){

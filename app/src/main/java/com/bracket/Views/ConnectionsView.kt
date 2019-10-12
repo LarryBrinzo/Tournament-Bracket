@@ -16,8 +16,8 @@ import android.util.Log
 import java.lang.Math.abs
 
 @SuppressLint("ViewConstructor")
-class MyView(context: Context, fromID: String, toID: String, private val rows: List<Rows>,
-              annotationcount: Int, private val cardWidth: Int, private val inc: Int) : View(context) {
+class ConnectionsView(context: Context, fromID: String, toID: String, private val rows: List<Rows>,
+                      annotationcount: Int, private val cardWidth: Int, private val inc: Int) : View(context) {
 
     private var mPaint: Paint = Paint()
     private var mPath: Path
