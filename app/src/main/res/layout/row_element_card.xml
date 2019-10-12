@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="wrap_content"
+        android:gravity="center"
+        android:id="@+id/maincard"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        >
+
+
+    <LinearLayout
+            android:id="@+id/roundcard"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+
+        <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/annotationtop"
+                android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="20dp">
+
+            <TextView
+                    android:id="@+id/annotationtop1"
+                    android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:textSize="12sp"
+                      android:gravity="center"
+                      android:layout_height="match_parent"/>
+
+            <TextView
+                    android:id="@+id/annotationtop2"
+                    android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:textSize="12sp"
+                      android:gravity="center"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangular_border"
+                android:gravity="center"
+                android:layout_height="60dp">
+
+
+            <LinearLayout android:layout_width="0dp"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:layout_height="match_parent">
+
+                <ImageView
+                        android:layout_width="30dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/rich"
+                        android:layout_height="15dp"/>
+
+                <TextView
+                        android:id="@+id/team1"
+                        android:layout_width="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_marginTop="7dp"
+                        android:textColor="@color/roundtextcolor"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                          android:orientation="vertical"
+                          android:gravity="center"
+                          android:layout_weight="1"
+                          android:layout_height="match_parent">
+
+                <ImageView
+                        android:layout_width="30dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/rich"
+                        android:layout_height="15dp"/>
+
+                <TextView
+                        android:id="@+id/team2"
+                        android:layout_width="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_marginTop="7dp"
+                        android:textColor="@color/roundtextcolor"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/annotationbottom"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="20dp">
+
+            <TextView
+                    android:id="@+id/annotationbottom1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"/>
+
+            <TextView
+                    android:id="@+id/annotationbottom2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:id="@+id/stagecard"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:background="@drawable/rectangular_border"
+            android:layout_height="60dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+                android:id="@+id/matchname"
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:text="QF1"
+                android:textColor="@color/roundtextcolor"
+                android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:id="@+id/finalcard"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@drawable/rectangular_border"
+            android:layout_height="60dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+                android:id="@+id/finalimg"
+                android:layout_width="50dp"
+                android:scaleType="centerInside"
+                android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+            android:id="@+id/emptycard"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_height="60dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
