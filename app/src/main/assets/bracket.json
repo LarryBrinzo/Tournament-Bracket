@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {"c":{"finalsGrids":[{"rows":[
 
   {"elementID":"row1",
@@ -42,18 +41,14 @@
 
 
 
-
-
-
   {"elementID":"row5",
     "items":[[
 
-      {"elementID":"261","style":"final","matchIDs":[20190142701],"trophyRemoteImageURL":"trophy:afl:1:png","leftTeamID":120,
+      {"elementID":"261","style":"final","matchIDs":[20190142701],"trophyRemoteImageURL":"https://pngimage.net/wp-content/uploads/2018/05/afl-premiership-cup-png-2.png","leftTeamID":120,
         "rightTeamID":1010,"type":"match","leftPrimaryScore":"114","rightPrimaryScore":"25","winnerTeamID":120,"name":"GF"}
     ]]}],
 
 
   "annotations":[{"text":"1","elementID":"211","alignment":"left","edge":"top"},{"text":"4","elementID":"211","alignment":"right","edge":"top"},{"text":"5","elementID":"212","alignment":"left","edge":"top"},{"text":"8","elementID":"212","alignment":"right","edge":"top"},{"text":"6","elementID":"213","alignment":"left","edge":"top"},{"text":"7","elementID":"213","alignment":"right","edge":"top"},{"text":"2","elementID":"214","alignment":"left","edge":"top"},{"text":"3","elementID":"214","alignment":"right","edge":"top"}],"connections":[{"fromElementID":"211","toElementIDs":["221","241"]},{"fromElementID":"212","toElementIDs":["221"]},{"fromElementID":"213","toElementIDs":["222"]},{"fromElementID":"214","toElementIDs":["222","242"]},{"fromElementID":"221","toElementIDs":["242"]},{"fromElementID":"222","toElementIDs":["241"]},{"fromElementID":"241","toElementIDs":["261"]},{"fromElementID":"242","toElementIDs":["261"]}],"competitionID":"201914","competitionName":"AFL 2019 Live Finals Grid"}],"defaultCompetitionID":"201914"},"v":20191007000306}
-=======
->>>>>>> 572e75d11f24f96c119bd9568806367f2f59272a
+
 

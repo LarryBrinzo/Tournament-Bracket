@@ -9,7 +9,6 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import android.widget.TextView
@@ -112,8 +111,6 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
         val height= max(height,(pxFromDp(applicationContext, 75f).toInt() * rows.size) +
                 (pxFromDp(applicationContext, 20f).toInt() * annotationcount) +
                 pxFromDp(applicationContext, 50f).toInt() + winningTeamTextHeight)
-
-        Log.e("Height : ",height.toString())
 
         for(c in connections.indices){
 
