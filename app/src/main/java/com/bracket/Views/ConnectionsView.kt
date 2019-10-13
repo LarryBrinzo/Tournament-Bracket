@@ -12,7 +12,6 @@ import android.util.DisplayMetrics
 import android.view.View
 import com.bracket.Models.Rows
 import android.graphics.CornerPathEffect
-import android.util.Log
 import java.lang.Math.abs
 
 @SuppressLint("ViewConstructor")
@@ -38,6 +37,17 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         val corEffect = CornerPathEffect(radius)
         mPaint.pathEffect = corEffect
 
+        if(rows[fromRowAndItemNumber!!.first - 1].items[0][fromRowAndItemNumber.second - 1].winnerTeamID ==
+            rows[toRowAndItemNumber!!.first - 1].items[0][toRowAndItemNumber.second - 1].leftTeamID ||
+            rows[fromRowAndItemNumber.first - 1].items[0][fromRowAndItemNumber.second - 1].winnerTeamID ==
+            rows[toRowAndItemNumber.first - 1].items[0][toRowAndItemNumber.second - 1].rightTeamID){
+
+            val teamPrimaryColor= Color.parseColor("#4f4e4e")
+
+            mPaint.color = manipulateColor(teamPrimaryColor,0.8f)
+
+        }
+
         val displayMetrics = DisplayMetrics()
 
         (getContext() as Activity).windowManager
@@ -59,7 +69,7 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         val toReach =  findReach(toID)
 
         if( abs ((toReach!!.second - toReach.first) - (fromReach!!.second - fromReach.first) ) >= cardWidth-10 ){
-            if(rows[fromRowAndItemNumber!!.first-1].items[0].size==rows[toRowAndItemNumber!!.first-1].items[0].size)
+            if(rows[fromRowAndItemNumber.first-1].items[0].size==rows[toRowAndItemNumber.first-1].items[0].size)
                 straightConnection()
             else
                 normalConnectionDraw()
@@ -223,6 +233,20 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         canvas.drawPath(mPath, mPaint)
     }
 
+    private fun manipulateColor(color: Int, factor: Float): Int{
+
+        val a = Color.alpha(color)
+        val r = Math.round(Color.red(color) * factor)
+        val g = Math.round(Color.green(color) * factor)
+        val b = Math.round(Color.blue(color) * factor)
+
+        return Color.argb(
+            a,
+            Math.min(r, 255),
+            Math.min(g, 255),
+            Math.min(b, 255)
+        )
+    }
 
     private fun pxFromDp(context: Context, dp: Float): Float {
         return dp * context.resources.displayMetrics.density

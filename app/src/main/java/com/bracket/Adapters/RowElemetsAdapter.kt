@@ -51,12 +51,12 @@ class RowElemetsAdapter(private val items: List<Items>, private val annotations:
             if(items[position].leftTeamID == items[position].winnerTeamID){
                 holder.leftTeam.background = context?.let { ContextCompat.getDrawable(it, R.drawable.left_rounded_corner) }
 
-                val color= Color.parseColor("#4f4e4e")
+                val teamPrimaryColor= Color.parseColor("#4f4e4e")
 
                 val bgDrawable: LayerDrawable = holder.leftTeam.background as LayerDrawable
                 val lrCorner: GradientDrawable = bgDrawable.findDrawableByLayerId(R.id.lr_corner) as GradientDrawable
-                lrCorner.setColor(color)
-                context?.let { pxFromDp(it, 1f).toInt() }?.let { lrCorner.setStroke(it,manipulateColor(color,0.8f)) }
+                lrCorner.setColor(teamPrimaryColor)
+                context?.let { pxFromDp(it, 1f).toInt() }?.let { lrCorner.setStroke(it,manipulateColor(teamPrimaryColor,0.8f)) }
 
                 holder.team1.setTextColor(Color.parseColor("#ffffff"))
             }
@@ -64,12 +64,12 @@ class RowElemetsAdapter(private val items: List<Items>, private val annotations:
             else{
                 holder.rightTeam.background = context?.let { ContextCompat.getDrawable(it, R.drawable.right_rounded_corner) }
 
-                val color= Color.parseColor("#4f4e4e")
+                val teamPrimaryColor= Color.parseColor("#4f4e4e")
 
                 val bgDrawable: LayerDrawable = holder.rightTeam.background as LayerDrawable
                 val rrCorner: GradientDrawable = bgDrawable.findDrawableByLayerId(R.id.rr_corner) as GradientDrawable
-                rrCorner.setColor(color)
-                context?.let { pxFromDp(it, 1f).toInt() }?.let { rrCorner.setStroke(it,manipulateColor(color,0.8f)) }
+                rrCorner.setColor(teamPrimaryColor)
+                context?.let { pxFromDp(it, 1f).toInt() }?.let { rrCorner.setStroke(it,manipulateColor(teamPrimaryColor,0.8f)) }
 
                 holder.team2.setTextColor(Color.parseColor("#ffffff"))
             }
