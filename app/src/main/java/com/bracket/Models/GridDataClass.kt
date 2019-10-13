@@ -9,8 +9,9 @@ data class FinalsGrids(var rows: List<Rows>, var annotations: List<Annotations>,
 
 data class Rows(var elementID: String="", var items: List<List<Items>>)
 
-data class Items(var elementID: String="", var style: String="", var leftTeamID: String="",
-                 var rightTeamID: String="", var name: String="", var trophyRemoteImageURL: String="")
+data class Items(var elementID: String="", var style: String="", var leftTeamID: Int,
+                 var rightTeamID: Int, var name: String="", var trophyRemoteImageURL: String="",
+                 var winnerTeamID: Int, var leftPrimaryScore: String="", var rightPrimaryScore: String="")
 
 data class Annotations(var text: String="", var elementID: String="", var alignment: String="", var edge: String="")
 

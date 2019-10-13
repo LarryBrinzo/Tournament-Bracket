@@ -2,7 +2,11 @@ package com.bracket.Adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
 import android.support.constraint.ConstraintLayout
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +18,6 @@ import com.bracket.Models.Annotations
 import com.bracket.Models.Items
 import com.bracket.R
 import com.bumptech.glide.Glide
-
 
 class RowElemetsAdapter(private val items: List<Items>, private val annotations: List<Annotations>, private val cardWidth: Int, private val Width: Int, private val context: Context?) :
     RecyclerView.Adapter<RowElemetsAdapter.MyHolder>() {
@@ -39,8 +42,37 @@ class RowElemetsAdapter(private val items: List<Items>, private val annotations:
 
             holder.roundCard.layoutParams.width=cardWidth
 
-            holder.team1.text=items[position].leftTeamID
-            holder.team2.text=items[position].rightTeamID
+            holder.team1Img.layoutParams.width=cardWidth/5
+            holder.team2Img.layoutParams.width=cardWidth/5
+
+            holder.team1.text=items[position].leftPrimaryScore
+            holder.team2.text=items[position].rightPrimaryScore
+
+            if(items[position].leftTeamID == items[position].winnerTeamID){
+                holder.leftTeam.background = context?.let { ContextCompat.getDrawable(it, R.drawable.left_rounded_corner) }
+
+                val color= Color.parseColor("#4f4e4e")
+
+                val bgDrawable: LayerDrawable = holder.leftTeam.background as LayerDrawable
+                val lrCorner: GradientDrawable = bgDrawable.findDrawableByLayerId(R.id.lr_corner) as GradientDrawable
+                lrCorner.setColor(color)
+                context?.let { pxFromDp(it, 1f).toInt() }?.let { lrCorner.setStroke(it,manipulateColor(color,0.8f)) }
+
+                holder.team1.setTextColor(Color.parseColor("#ffffff"))
+            }
+
+            else{
+                holder.rightTeam.background = context?.let { ContextCompat.getDrawable(it, R.drawable.right_rounded_corner) }
+
+                val color= Color.parseColor("#4f4e4e")
+
+                val bgDrawable: LayerDrawable = holder.rightTeam.background as LayerDrawable
+                val rrCorner: GradientDrawable = bgDrawable.findDrawableByLayerId(R.id.rr_corner) as GradientDrawable
+                rrCorner.setColor(color)
+                context?.let { pxFromDp(it, 1f).toInt() }?.let { rrCorner.setStroke(it,manipulateColor(color,0.8f)) }
+
+                holder.team2.setTextColor(Color.parseColor("#ffffff"))
+            }
 
             for(a in annotations.indices){
 
@@ -111,6 +143,10 @@ class RowElemetsAdapter(private val items: List<Items>, private val annotations:
         var stageCard: LinearLayout
         var finalCard: LinearLayout
         var emptyCard: LinearLayout
+        var leftTeam: LinearLayout
+        var rightTeam: LinearLayout
+        var team1Img: ImageView
+        var team2Img: ImageView
         var maincard: ConstraintLayout
         var matchName: TextView
         var team1: TextView
@@ -128,8 +164,12 @@ class RowElemetsAdapter(private val items: List<Items>, private val annotations:
             stageCard = itemView.findViewById(R.id.stagecard)
             emptyCard = itemView.findViewById(R.id.emptycard)
             maincard = itemView.findViewById(R.id.maincard)
+            leftTeam = itemView.findViewById(R.id.leftteam)
+            rightTeam = itemView.findViewById(R.id.rightteam)
             finalCard = itemView.findViewById(R.id.finalcard)
             matchName = itemView.findViewById(R.id.matchname)
+            team1Img = itemView.findViewById(R.id.team1img)
+            team2Img = itemView.findViewById(R.id.team2img)
             team1 = itemView.findViewById(R.id.team1)
             team2 = itemView.findViewById(R.id.team2)
             finalimg = itemView.findViewById(R.id.finalimg)
@@ -140,6 +180,25 @@ class RowElemetsAdapter(private val items: List<Items>, private val annotations:
             annotationbottom1 = itemView.findViewById(R.id.annotationbottom1)
             annotationbottom2 = itemView.findViewById(R.id.annotationbottom2)
         }
+    }
+
+    private fun manipulateColor(color: Int, factor: Float): Int{
+
+        val a = Color.alpha(color)
+        val r = Math.round(Color.red(color) * factor)
+        val g = Math.round(Color.green(color) * factor)
+        val b = Math.round(Color.blue(color) * factor)
+
+        return Color.argb(
+            a,
+            Math.min(r, 255),
+            Math.min(g, 255),
+            Math.min(b, 255)
+        )
+    }
+
+    private fun pxFromDp(context: Context, dp: Float): Float {
+        return dp * context.resources.displayMetrics.density
     }
 
     override fun getItemId(position: Int): Long {

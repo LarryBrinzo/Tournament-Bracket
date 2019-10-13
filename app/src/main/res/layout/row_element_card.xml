@@ -56,17 +56,20 @@
                 android:layout_height="60dp">
 
 
-            <LinearLayout android:layout_width="0dp"
+            <LinearLayout
+                    android:id="@+id/leftteam"
+                    android:layout_width="0dp"
                           android:orientation="vertical"
                           android:layout_weight="1"
                           android:gravity="center"
                           android:layout_height="match_parent">
 
                 <ImageView
-                        android:layout_width="30dp"
+                        android:id="@+id/team1img"
+                        android:layout_width="wrap_content"
                         android:scaleType="centerInside"
                         android:src="@drawable/rich"
-                        android:layout_height="15dp"/>
+                        android:layout_height="20dp"/>
 
                 <TextView
                         android:id="@+id/team1"
@@ -78,17 +81,20 @@
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="0dp"
+            <LinearLayout
+                    android:id="@+id/rightteam"
+                    android:layout_width="0dp"
                           android:orientation="vertical"
                           android:gravity="center"
                           android:layout_weight="1"
                           android:layout_height="match_parent">
 
                 <ImageView
-                        android:layout_width="30dp"
+                        android:id="@+id/team2img"
+                        android:layout_width="wrap_content"
                         android:scaleType="centerInside"
                         android:src="@drawable/rich"
-                        android:layout_height="15dp"/>
+                        android:layout_height="20dp"/>
 
                 <TextView
                         android:id="@+id/team2"
