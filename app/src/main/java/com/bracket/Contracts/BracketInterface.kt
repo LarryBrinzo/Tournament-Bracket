@@ -10,12 +10,14 @@ interface BracketInterface {
         fun setRows()
         fun setAnnotations()
         fun setConnections()
+        fun setWinningTeam()
     }
 
     interface Model {
         fun getRows(): List<Rows>
         fun getAnnotations(): List<Annotations>
         fun getConnections(): List<Connections>
+        fun getWinningTeam(): Int
     }
 
 }

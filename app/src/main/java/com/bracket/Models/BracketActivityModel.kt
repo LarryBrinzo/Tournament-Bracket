@@ -19,6 +19,11 @@ class BracketActivityModel(private val context: Context) : BracketInterface.Mode
     private val gson: Gson = Gson()
     private val finalGridsValues: GridDataClass = gson.fromJson(f, GridDataClass::class.java)
 
+    override fun getWinningTeam(): Int {
+        val rowSize= finalGridsValues.c.finalsGrids[0].rows.size
+        return finalGridsValues.c.finalsGrids[0].rows[rowSize-1].items[0][0].winnerTeamID
+    }
+
     override fun getRows(): List<Rows> {
         return finalGridsValues.c.finalsGrids[0].rows
     }

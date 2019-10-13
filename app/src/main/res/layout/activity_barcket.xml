@@ -27,6 +27,19 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
 
+        <TextView
+                android:id="@+id/winningteam"
+                android:layout_width="wrap_content"
+                  android:textColor="@color/colorAccent"
+                  android:textSize="24sp"
+                  android:textStyle="bold"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="10dp"
+                  app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                  android:layout_marginStart="1dp"
+                  app:layout_constraintBottom_toTopOf="@+id/bracketrecycle"
+                  app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="1.0"/>
+
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/bracketrecycle"
                 android:layout_width="match_parent"

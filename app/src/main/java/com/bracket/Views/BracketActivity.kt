@@ -9,8 +9,10 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.Window
 import android.view.WindowManager
+import android.widget.TextView
 import com.bracket.Adapters.RowsAdapter
 import com.bracket.Contracts.BracketInterface
 import com.bracket.Models.Annotations
@@ -26,6 +28,7 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
     private lateinit var bracketRecycle : RecyclerView
     private lateinit var rowsAdapter: RowsAdapter
     private lateinit var rows: List<Rows>
+    private lateinit var winningTeam: TextView
     private lateinit var annotations: List<Annotations>
     private lateinit var view: NestedScrollView
     private lateinit var layout : ConstraintLayout
@@ -46,6 +49,7 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
 
         bracketModel = BracketActivityModel(applicationContext)
         bracketRecycle = findViewById(R.id.bracketrecycle)
+        winningTeam = findViewById(R.id.winningteam)
         layout = findViewById(R.id.layout)
         view = findViewById(R.id.view)
 
@@ -55,8 +59,18 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
     }
 
     private fun initView(){
+        setWinningTeam()
         setRows()
     }
+
+    override fun setWinningTeam() {
+
+        val winningTeamName = bracketModel!!.getWinningTeam()
+
+        if(winningTeamName != 0)
+            winningTeam.text = winningTeamName.toString()
+    }
+
 
     override fun setRows() {
         rows = bracketModel!!.getRows()
@@ -92,8 +106,14 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
     override fun setConnections() {
         val connections: List<Connections> = bracketModel!!.getConnections()
 
-        height=max(height ,(pxFromDp(applicationContext, 75f).toInt() * rows.size) -
-                (pxFromDp(applicationContext, 20f).toInt() * annotationcount) + pxFromDp(applicationContext, 40f).toInt())
+        winningTeam.measure(0, 0)
+        val winningTeamTextHeight= winningTeam.measuredHeight
+
+        val height= max(height,(pxFromDp(applicationContext, 75f).toInt() * rows.size) +
+                (pxFromDp(applicationContext, 20f).toInt() * annotationcount) +
+                pxFromDp(applicationContext, 50f).toInt() + winningTeamTextHeight)
+
+        Log.e("Height : ",height.toString())
 
         for(c in connections.indices){
 
@@ -102,7 +122,7 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
             for (t in connection.toElementIDs.indices){
 
                 val connectionsView = ConnectionsView(this,connection.fromElementID,connection.toElementIDs[t],
-                    rows,annotationcount,cardWidth,(cardWidth/6)*t)
+                    rows,annotationcount,cardWidth,(cardWidth/6)*t,winningTeamTextHeight,height)
 
                 layout.addView(connectionsView,width,height)
             }

@@ -16,7 +16,8 @@ import java.lang.Math.abs
 
 @SuppressLint("ViewConstructor")
 class ConnectionsView(context: Context, fromID: String, toID: String, private val rows: List<Rows>,
-                      annotationcount: Int, private val cardWidth: Int, private val inc: Int) : View(context) {
+                      annotationcount: Int, private val cardWidth: Int, private val inc: Int,
+                      winningTeamTextHeight: Int, height: Int) : View(context) {
 
     private var mPaint: Paint = Paint()
     private var mPath: Path
@@ -60,8 +61,8 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         starty = (screenHeight - (pxFromDp(context, 75f).toInt() * rows.size) -
                 (pxFromDp(context, 20f).toInt() * annotationcount)) / 2
 
-        if(starty<0)
-            starty = pxFromDp(context, 20f).toInt()
+        if(height > screenHeight)
+            starty = pxFromDp(context, 10f).toInt() + winningTeamTextHeight
 
         mPath = Path()
 
