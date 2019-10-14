@@ -4,7 +4,6 @@ import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
-import android.support.v4.widget.NestedScrollView
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -29,7 +28,6 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
     private lateinit var rows: List<Rows>
     private lateinit var winningTeam: TextView
     private lateinit var annotations: List<Annotations>
-    private lateinit var view: NestedScrollView
     private lateinit var layout : ConstraintLayout
     private var cardWidth = 0
     private var width = 0
@@ -50,7 +48,6 @@ class BracketActivity : AppCompatActivity(), BracketInterface.View {
         bracketRecycle = findViewById(R.id.bracketrecycle)
         winningTeam = findViewById(R.id.winningteam)
         layout = findViewById(R.id.layout)
-        view = findViewById(R.id.view)
 
         bracketRecycle.isNestedScrollingEnabled = false
 

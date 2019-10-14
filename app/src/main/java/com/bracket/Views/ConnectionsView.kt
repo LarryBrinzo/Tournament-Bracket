@@ -141,8 +141,9 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         val fromy = starty + pxFromDp(context, 75f).toInt() * fromRowAndItemNumber!!.first +
                 pxFromDp(context, 20f).toInt()
 
-        val toy = starty + pxFromDp(context, 75f).toInt() * (toRowAndItemNumber!!.first-1) +
-                pxFromDp(context, 23f).toInt()
+        val toy = fromy + (pxFromDp(context, 75f) *
+                (abs(toRowAndItemNumber!!.first - fromRowAndItemNumber.first) - 1)).toInt() +
+                pxFromDp(context, 15f).toInt()
 
         var fromElementSize = 60
 
@@ -161,11 +162,12 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
 
     private fun slantConnection(){
 
-        val fromy = starty + pxFromDp(context, 75f).toInt() * fromRowAndItemNumber!!.first +
-                pxFromDp(context, 20f).toInt()
+        val fromy = (starty.toFloat() + pxFromDp(context, 75f) * fromRowAndItemNumber!!.first +
+                pxFromDp(context, 20f)).toInt()
 
-        val toy = starty + pxFromDp(context, 75f).toInt() * (toRowAndItemNumber!!.first-1) +
-                pxFromDp(context, 36f).toInt()
+        val toy = (fromy.toFloat() + (pxFromDp(context, 75f) *
+                (abs(toRowAndItemNumber!!.first - fromRowAndItemNumber.first) - 1)).toInt().toFloat() +
+                pxFromDp(context, 15f)).toInt()
 
         var fromElementSize = 60
         var toElementSize = 60
