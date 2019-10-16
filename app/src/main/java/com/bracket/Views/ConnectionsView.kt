@@ -132,7 +132,7 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         mPath.moveTo(p1.x.toFloat(), p1.y.toFloat())
         mPath.lineTo(p2.x.toFloat(), p2.y.toFloat())
         mPath.lineTo(p3.x.toFloat(), p3.y.toFloat())
-
+        mPath.lineTo(p3.x.toFloat(), p3.y.toFloat())
     }
 
 
@@ -156,6 +156,7 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         val p2 = Point(fromx,toy)
 
         mPath.moveTo(p1.x.toFloat(), p1.y.toFloat())
+        mPath.lineTo(p2.x.toFloat(), p2.y.toFloat())
         mPath.lineTo(p2.x.toFloat(), p2.y.toFloat())
     }
 
@@ -190,6 +191,7 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         mPath.moveTo(p1.x.toFloat(), p1.y.toFloat())
         mPath.lineTo(p2.x.toFloat(), p2.y.toFloat())
         mPath.lineTo(p3.x.toFloat(), p3.y.toFloat())
+        mPath.lineTo(p4.x.toFloat(), p4.y.toFloat())
         mPath.lineTo(p4.x.toFloat(), p4.y.toFloat())
 
     }
