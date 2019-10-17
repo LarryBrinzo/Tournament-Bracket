@@ -84,6 +84,71 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
 
     private fun normalConnectionDraw(){
 
+        if (rows[toRowAndItemNumber!!.first - 1].items[0].size >
+            rows[fromRowAndItemNumber!!.first - 1].items[0].size
+        ) {
+            fromLowerToHigherRowItems()
+        } else {
+            fromHigherToLowerRowItems()
+        }
+    }
+
+    private fun fromLowerToHigherRowItems() {
+
+        var fromElementSize = 60
+        var toElementSize = 60
+
+        if (rows[fromRowAndItemNumber!!.first - 1].items[0].isNotEmpty())
+            fromElementSize = screenWidth / rows[fromRowAndItemNumber.first - 1].items[0].size
+
+        if (rows[toRowAndItemNumber!!.first - 1].items[0].isNotEmpty())
+            toElementSize = screenWidth / rows[toRowAndItemNumber.first - 1].items[0].size
+
+        var fromx = fromElementSize * (fromRowAndItemNumber.second - 1) + (fromElementSize - cardWidth) / 2
+
+        if (toRowAndItemNumber.second % 2 == 0)
+            fromx += cardWidth
+
+        var tox: Int
+
+        tox = if (toRowAndItemNumber.second % 2 == 0)
+            toElementSize * toRowAndItemNumber.second - toElementSize / 2
+        else
+            toElementSize * (toRowAndItemNumber.second - 1) + toElementSize / 2
+
+        if (rows[toRowAndItemNumber.first - 1].items[0].size > 2) {
+
+            if (toRowAndItemNumber.second % 2 == 0)
+                tox += cardWidth / 14
+            else
+                tox -= cardWidth / 14
+        }
+
+        if (toRowAndItemNumber.second % 2 == 0)
+            tox += inc
+        else
+            tox -= inc
+
+        val toy = (starty.toFloat() + pxFromDp(context, 75f) * (toRowAndItemNumber.first - 1) +
+                pxFromDp(context, 35f)).toInt()
+
+        val diffy = (pxFromDp(context, 75f) * (toRowAndItemNumber.first - fromRowAndItemNumber.first - 1) + pxFromDp(
+            context,
+            45f
+        )).toInt()
+
+        val p1 = Point(fromx, toy - diffy)
+        val p2 = Point(tox, toy - diffy)
+        val p3 = Point(tox, toy)
+
+        mPath.moveTo(p1.x.toFloat(), p1.y.toFloat())
+        mPath.lineTo(p2.x.toFloat(), p2.y.toFloat())
+        mPath.lineTo(p3.x.toFloat(), p3.y.toFloat())
+        mPath.lineTo(p3.x.toFloat(), p3.y.toFloat())
+    }
+
+    private fun fromHigherToLowerRowItems() {
+
         var fromElementSize = 60
         var toElementSize = 60
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 {"c":{"finalsGrids":[{"rows":[
 
@@ -21,38 +20,141 @@
     "items":[[
 
       {"elementID":"221","style":"stage","matchIDs":[20190142501],"leftTeamID":70,"rightTeamID":150,"type":"match",
-        "leftPrimaryScore":"88","rightPrimaryScore":"68","winnerTeamID":70,"name":"SF1"},
+        "leftPrimaryScore":"88","rightPrimaryScore":"68","winnerTeamID":70,"name":"QF 1"},
 
       {"elementID":"222","style":"stage","matchIDs":[20190142502],"leftTeamID":1010,"rightTeamID":20,"type":"match",
-        "leftPrimaryScore":"83","rightPrimaryScore":"80","winnerTeamID":1010,"name":"SF2"}
+        "leftPrimaryScore":"83","rightPrimaryScore":"80","winnerTeamID":1010,"name":"QF 2"}
     ]]},
 
+
   {"elementID":"row3",
-    "items":[[]]},
+    "items":[[
+
+      {"elementID":"231","style":"stage","matchIDs":[20190142701],"leftTeamID":120,
+        "rightTeamID":1010,"type":"match","leftPrimaryScore":"114","rightPrimaryScore":"25","winnerTeamID":120,"name":"SF 1"}
+    ]]},
+
 
   {"elementID":"row4",
     "items":[[
 
-      {"elementID":"241","style":"stage","matchIDs":[20190142601],"leftTeamID":40,"rightTeamID":1010,"type":"match",
-        "leftPrimaryScore":"52","rightPrimaryScore":"56","winnerTeamID":1010,"name":"PF1"},
-
-      {"elementID":"242","style":"stage","matchIDs":[20190142602],"leftTeamID":120,"rightTeamID":70,"type":"match",
-        "leftPrimaryScore":"85","rightPrimaryScore":"66","winnerTeamID":120,"name":"PF2"}
+      {"elementID":"241","style":"final","matchIDs":[20190142701],"trophyRemoteImageURL":"https://pngimage.net/wp-content/uploads/2018/05/afl-premiership-cup-png-2.png","leftTeamID":120,
+        "rightTeamID":1010,"type":"match","leftPrimaryScore":"114","rightPrimaryScore":"25","winnerTeamID":120,"name":"GF"}
     ]]},
-
-
 
 
   {"elementID":"row5",
     "items":[[
 
-      {"elementID":"261","style":"final","matchIDs":[20190142701],"trophyRemoteImageURL":"https://pngimage.net/wp-content/uploads/2018/05/afl-premiership-cup-png-2.png","leftTeamID":120,
-        "rightTeamID":1010,"type":"match","leftPrimaryScore":"114","rightPrimaryScore":"25","winnerTeamID":120,"name":"GF"}
-    ]]}],
+      {"elementID":"251","style":"stage","matchIDs":[20190142701],"leftTeamID":120,
+        "rightTeamID":1010,"type":"match","leftPrimaryScore":"114","rightPrimaryScore":"25","winnerTeamID":120,"name":"SF 2"}
+    ]]},
 
 
-  "annotations":[{"text":"1","elementID":"211","alignment":"left","edge":"top"},{"text":"4","elementID":"211","alignment":"right","edge":"top"},{"text":"5","elementID":"212","alignment":"left","edge":"top"},{"text":"8","elementID":"212","alignment":"right","edge":"top"},{"text":"6","elementID":"213","alignment":"left","edge":"top"},{"text":"7","elementID":"213","alignment":"right","edge":"top"},{"text":"2","elementID":"214","alignment":"left","edge":"top"},{"text":"3","elementID":"214","alignment":"right","edge":"top"}],"connections":[{"fromElementID":"211","toElementIDs":["221","241"]},{"fromElementID":"212","toElementIDs":["221"]},{"fromElementID":"213","toElementIDs":["222"]},{"fromElementID":"214","toElementIDs":["222","242"]},{"fromElementID":"221","toElementIDs":["242"]},{"fromElementID":"222","toElementIDs":["241"]},{"fromElementID":"241","toElementIDs":["261"]},{"fromElementID":"242","toElementIDs":["261"]}],"competitionID":"201914","competitionName":"AFL 2019 Live Finals Grid"}],"defaultCompetitionID":"201914"},"v":20191007000306}
+  {"elementID":"row6",
+    "items":[[
 
-=======
->>>>>>> 75c5273e7908a800985fa29b3f2dab2051448160
+      {"elementID":"261","style":"stage","matchIDs":[20190142501],"leftTeamID":70,"rightTeamID":150,"type":"match",
+        "leftPrimaryScore":"88","rightPrimaryScore":"68","winnerTeamID":70,"name":"QF 3"},
+
+      {"elementID":"262","style":"stage","matchIDs":[20190142502],"leftTeamID":1010,"rightTeamID":20,"type":"match",
+        "leftPrimaryScore":"83","rightPrimaryScore":"80","winnerTeamID":1010,"name":"QF 4"}
+    ]]},
+
+  {"elementID":"row7",
+    "items":[[
+      {"elementID":"271","style":"round","matchIDs":[20190142403],"leftTeamID":70,"rightTeamID":40,
+        "type":"match","leftPrimaryScore":"51","rightPrimaryScore":"61","winnerTeamID":40,"name":"QF1"},
+
+      {"elementID":"272","style":"round","matchIDs":[20190142401],"leftTeamID":150,"rightTeamID":50,
+        "type":"match","leftPrimaryScore":"116","rightPrimaryScore":"61","winnerTeamID":150,"name":"EF1"},
+
+      {"elementID":"273","style":"round","matchIDs":[20190142402],"leftTeamID":1010,"rightTeamID":140,"type":"match",
+        "leftPrimaryScore":"113","rightPrimaryScore":"55","winnerTeamID":1010,"name":"EF2"},
+
+      {"elementID":"274","style":"round","matchIDs":[20190142404],"leftTeamID":20,"rightTeamID":120,"type":"match",
+        "leftPrimaryScore":"65","rightPrimaryScore":"112","winnerTeamID":120,"name":"QF2"}
+    ]]},
+
+
+  {"elementID":"row8",
+    "items":[[
+
+      {"elementID":"281","style":"stage","matchIDs":[20190142701],"leftTeamID":120,
+        "rightTeamID":1010,"type":"match","leftPrimaryScore":"114","rightPrimaryScore":"25","winnerTeamID":120,"name":"3RD"}
+    ]]}
+
+],
+
+
+  "annotations":[
+
+    {"text":"1","elementID":"211","alignment":"left","edge":"top"},
+
+    {"text":"4","elementID":"211","alignment":"right","edge":"top"},
+
+    {"text":"5","elementID":"212","alignment":"left","edge":"top"},
+
+    {"text":"8","elementID":"212","alignment":"right","edge":"top"},
+
+    {"text":"6","elementID":"213","alignment":"left","edge":"top"},
+
+    {"text":"7","elementID":"213","alignment":"right","edge":"top"},
+
+    {"text":"2","elementID":"214","alignment":"left","edge":"top"},
+
+    {"text":"3","elementID":"214","alignment":"right","edge":"top"},
+
+    {"text":"1","elementID":"271","alignment":"left","edge":"bottom"},
+
+    {"text":"4","elementID":"271","alignment":"right","edge":"bottom"},
+
+    {"text":"5","elementID":"272","alignment":"left","edge":"bottom"},
+
+    {"text":"8","elementID":"272","alignment":"right","edge":"bottom"},
+
+    {"text":"6","elementID":"273","alignment":"left","edge":"bottom"},
+
+    {"text":"7","elementID":"273","alignment":"right","edge":"bottom"},
+
+    {"text":"2","elementID":"274","alignment":"left","edge":"bottom"},
+
+    {"text":"3","elementID":"274","alignment":"right","edge":"bottom"}
+
+  ],
+
+  "connections":[
+
+    {"fromElementID":"211","toElementIDs":["221"]},
+
+    {"fromElementID":"212","toElementIDs":["221"]},
+
+    {"fromElementID":"213","toElementIDs":["222"]},
+
+    {"fromElementID":"214","toElementIDs":["222"]},
+
+    {"fromElementID":"221","toElementIDs":["231"]},
+
+    {"fromElementID":"222","toElementIDs":["231"]},
+
+    {"fromElementID":"231","toElementIDs":["241"]},
+
+    {"fromElementID":"241","toElementIDs":["251"]},
+
+    {"fromElementID":"251","toElementIDs":["261"]},
+
+    {"fromElementID":"251","toElementIDs":["262"]},
+
+    {"fromElementID":"261","toElementIDs":["271"]},
+
+    {"fromElementID":"261","toElementIDs":["272"]},
+
+    {"fromElementID":"262","toElementIDs":["273"]},
+
+    {"fromElementID":"262","toElementIDs":["274"]}
+  ],
+
+
+  "competitionID":"201914","competitionName":"AFL 2019 Live Finals Grid"}],"defaultCompetitionID":"201914"},"v":20191007000306}
+
 
