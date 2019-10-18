@@ -12,6 +12,7 @@ import android.util.DisplayMetrics
 import android.view.View
 import com.bracket.Models.Rows
 import android.graphics.CornerPathEffect
+import android.util.Log
 import java.lang.Math.abs
 
 @SuppressLint("ViewConstructor")
@@ -69,8 +70,10 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         val fromReach = findReach(fromID)
         val toReach =  findReach(toID)
 
-        if( abs ((toReach!!.second - toReach.first) - (fromReach!!.second - fromReach.first) ) >= cardWidth-10 ){
-            if(rows[fromRowAndItemNumber.first-1].items[0].size==rows[toRowAndItemNumber.first-1].items[0].size)
+        if (fromReach!!.first > toReach!!.first && fromReach.first < toReach.second ||
+            fromReach.second > toReach.first && fromReach.second < toReach.second ||
+            fromReach.first == toReach.first && fromReach.second == toReach.second){
+            if(rows[fromRowAndItemNumber.first-1].items[0].size == rows[toRowAndItemNumber.first-1].items[0].size)
                 straightConnection()
             else
                 normalConnectionDraw()
@@ -84,71 +87,6 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
 
     private fun normalConnectionDraw(){
 
-        if (rows[toRowAndItemNumber!!.first - 1].items[0].size >
-            rows[fromRowAndItemNumber!!.first - 1].items[0].size
-        ) {
-            fromLowerToHigherRowItems()
-        } else {
-            fromHigherToLowerRowItems()
-        }
-    }
-
-    private fun fromLowerToHigherRowItems() {
-
-        var fromElementSize = 60
-        var toElementSize = 60
-
-        if (rows[fromRowAndItemNumber!!.first - 1].items[0].isNotEmpty())
-            fromElementSize = screenWidth / rows[fromRowAndItemNumber.first - 1].items[0].size
-
-        if (rows[toRowAndItemNumber!!.first - 1].items[0].isNotEmpty())
-            toElementSize = screenWidth / rows[toRowAndItemNumber.first - 1].items[0].size
-
-        var fromx = fromElementSize * (fromRowAndItemNumber.second - 1) + (fromElementSize - cardWidth) / 2
-
-        if (toRowAndItemNumber.second % 2 == 0)
-            fromx += cardWidth
-
-        var tox: Int
-
-        tox = if (toRowAndItemNumber.second % 2 == 0)
-            toElementSize * toRowAndItemNumber.second - toElementSize / 2
-        else
-            toElementSize * (toRowAndItemNumber.second - 1) + toElementSize / 2
-
-        if (rows[toRowAndItemNumber.first - 1].items[0].size > 2) {
-
-            if (toRowAndItemNumber.second % 2 == 0)
-                tox += cardWidth / 14
-            else
-                tox -= cardWidth / 14
-        }
-
-        if (toRowAndItemNumber.second % 2 == 0)
-            tox += inc
-        else
-            tox -= inc
-
-        val toy = (starty.toFloat() + pxFromDp(context, 75f) * (toRowAndItemNumber.first - 1) +
-                pxFromDp(context, 35f)).toInt()
-
-        val diffy = (pxFromDp(context, 75f) * (toRowAndItemNumber.first - fromRowAndItemNumber.first - 1) + pxFromDp(
-            context,
-            45f
-        )).toInt()
-
-        val p1 = Point(fromx, toy - diffy)
-        val p2 = Point(tox, toy - diffy)
-        val p3 = Point(tox, toy)
-
-        mPath.moveTo(p1.x.toFloat(), p1.y.toFloat())
-        mPath.lineTo(p2.x.toFloat(), p2.y.toFloat())
-        mPath.lineTo(p3.x.toFloat(), p3.y.toFloat())
-        mPath.lineTo(p3.x.toFloat(), p3.y.toFloat())
-    }
-
-    private fun fromHigherToLowerRowItems() {
-
         var fromElementSize = 60
         var toElementSize = 60
 
@@ -158,8 +96,21 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         if(rows[toRowAndItemNumber!!.first - 1].items[0].isNotEmpty())
             toElementSize = screenWidth / rows[toRowAndItemNumber.first-1].items[0].size
 
-        val fromy = starty + pxFromDp(context, 75f).toInt() * fromRowAndItemNumber.first +
+        var fromy = starty + pxFromDp(context, 75f).toInt() * fromRowAndItemNumber.first +
                 pxFromDp(context, 20f).toInt()
+
+        val diffy = pxFromDp(context, 15f).toInt() *
+                (toRowAndItemNumber.first-fromRowAndItemNumber.first)+
+                pxFromDp(context, 60f).toInt() * ((toRowAndItemNumber.first-fromRowAndItemNumber.first)-1) +
+                pxFromDp(context, 30f).toInt()
+
+        val toy = fromy + diffy
+
+        if (toRowAndItemNumber.first <
+            fromRowAndItemNumber.first
+        ){
+            fromy -= pxFromDp(context, 60f).toInt()
+        }
 
         var fromx: Int
 
@@ -185,14 +136,9 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
             fromx += inc
         else fromx -= inc
 
-        val diffy = pxFromDp(context, 15f).toInt() *
-                (toRowAndItemNumber.first-fromRowAndItemNumber.first)+
-                pxFromDp(context, 60f).toInt() * ((toRowAndItemNumber.first-fromRowAndItemNumber.first)-1) +
-                pxFromDp(context, 30f).toInt()
-
         val p1 = Point(fromx,fromy)
-        val p2 = Point(fromx,fromy + diffy)
-        val p3 = Point(tox,fromy + diffy)
+        val p2 = Point(fromx,toy)
+        val p3 = Point(tox,toy)
 
         mPath.moveTo(p1.x.toFloat(), p1.y.toFloat())
         mPath.lineTo(p2.x.toFloat(), p2.y.toFloat())
@@ -200,15 +146,31 @@ class ConnectionsView(context: Context, fromID: String, toID: String, private va
         mPath.lineTo(p3.x.toFloat(), p3.y.toFloat())
     }
 
-
     private fun straightConnection(){
 
-        val fromy = starty + pxFromDp(context, 75f).toInt() * fromRowAndItemNumber!!.first +
-                pxFromDp(context, 20f).toInt()
+        val fromy: Int
+        val toy: Int
 
-        val toy = fromy + (pxFromDp(context, 75f) *
-                (abs(toRowAndItemNumber!!.first - fromRowAndItemNumber.first) - 1)).toInt() +
-                pxFromDp(context, 15f).toInt()
+
+        if (toRowAndItemNumber!!.first <
+            fromRowAndItemNumber!!.first
+        ) {
+             fromy = starty + pxFromDp(context, 75f).toInt() * toRowAndItemNumber.first +
+                    pxFromDp(context, 20f).toInt()
+
+             toy = fromy + (pxFromDp(context, 75f) *
+                    (abs(fromRowAndItemNumber.first - toRowAndItemNumber.first) - 1)).toInt() +
+                    pxFromDp(context, 15f).toInt()
+        }
+
+        else{
+             fromy = (starty + pxFromDp(context, 75f) * fromRowAndItemNumber.first +
+                    pxFromDp(context, 20f)).toInt()
+
+             toy = (fromy + (pxFromDp(context, 75f) *
+                    (abs(toRowAndItemNumber.first - fromRowAndItemNumber.first) - 1)) +
+                    pxFromDp(context, 15f)).toInt()
+        }
 
         var fromElementSize = 60
 

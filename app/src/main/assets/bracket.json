@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 {"c":{"finalsGrids":[{"rows":[
 
@@ -140,24 +139,23 @@
 
     {"fromElementID":"231","toElementIDs":["241"]},
 
-    {"fromElementID":"241","toElementIDs":["251"]},
+    {"fromElementID":"251","toElementIDs":["241"]},
 
-    {"fromElementID":"251","toElementIDs":["261"]},
+    {"fromElementID":"261","toElementIDs":["251"]},
 
-    {"fromElementID":"251","toElementIDs":["262"]},
+    {"fromElementID":"262","toElementIDs":["251"]},
 
-    {"fromElementID":"261","toElementIDs":["271"]},
+    {"fromElementID":"271","toElementIDs":["261"]},
 
-    {"fromElementID":"261","toElementIDs":["272"]},
+    {"fromElementID":"272","toElementIDs":["261"]},
 
-    {"fromElementID":"262","toElementIDs":["273"]},
+    {"fromElementID":"273","toElementIDs":["262"]},
 
-    {"fromElementID":"262","toElementIDs":["274"]}
+    {"fromElementID":"274","toElementIDs":["262"]}
+
   ],
 
 
   "competitionID":"201914","competitionName":"AFL 2019 Live Finals Grid"}],"defaultCompetitionID":"201914"},"v":20191007000306}
 
-=======
->>>>>>> 0d8ca9e770eb6489c1af7a96b4b1bfe10c838eae
 
